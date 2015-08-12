@@ -120,9 +120,12 @@ The project has four modules which are structured as follow:
        |-C
        +-D
 
-Where `A` is the main library of the project, `B` is a submodule of
-`A` and a factory deciding whether `C` or `D` is chosen as
-implementation for the interface proposed by `B`.
+Where A is the main library module of the project, B is a
+submodule of A.
+
+The module B contains a factory method pattern that will create a 'b'
+object with either a 'c' or a 'd' implementation depending on the
+argument given to the factory method.
 
 
 Issues and Todo-list
