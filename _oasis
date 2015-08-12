@@ -1,0 +1,64 @@
+OASISFormat:   0.4
+Name:          Boilerplate OCaml
+Version:       0.1.0alpha
+Synopsis:      BoilerPlate OCaml project with usual development tools
+Authors:       A Team
+License:       BSD-2-clause
+Plugins:       META (0.4)
+BuildTools:    ocamlbuild
+AlphaFeatures: ocamlbuild_more_args
+
+PostCleanCommand:
+  $rm -f `find . -name "*~"`
+
+PostDistcleanCommand:
+  $rm -f _tags myocamlbuild.ml setup.ml setup.data lib/api.odocl
+  $rm -f `find lib -name "*.mllib" -or -name "*.mldylib"`
+  $rm -f `find lib -name "META" -or -name "*.mlpack"`
+  $rm -rf doc/api `find -name "*.docdir"`
+
+
+Library a
+  Path:           lib
+  Modules:        A
+  BuildDepends:   a.b
+  CompiledObject: best
+
+Library a_b
+  Path:           lib
+  FindLibName:    b
+  FindlibParent:  a
+  Modules:        B
+  CompiledObject: best
+
+Executable mytool
+  Path:           tools
+  MainIs:         mytool.ml
+  BuildDepends:   a
+  CompiledObject: best
+
+Executable test_b
+  Path:           test
+  MainIs:         test_b.ml
+  Install:        false
+  Build$:         flag(tests)
+  BuildDepends:   a.b, oUnit (>= 2.0)
+  CompiledObject: best
+
+Test test_loader
+  WorkingDirectory: test
+  Run$:		    flag(tests)
+  Command:          $test_b
+
+Document api
+  Title:                A API Reference
+  Authors: 		A Team
+  Abstract: 		An Example of Module Hierarchy in OCaml
+  Type:                 ocamlbuild (0.4)
+  BuildTools:           ocamldoc
+  XOCamlbuildPath: 	lib
+  XOCamlbuildLibraries: a, a.b
+  XOCamlbuildExtraArgs:
+    -no-links -docflags -d,doc/api,-colorize-code,-short-functors,-charset,utf-8
+  PreCommand:  $rm -rf doc/api
+  PostCommand: mv _build/lib/api.docdir doc/api

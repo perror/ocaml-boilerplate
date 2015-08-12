@@ -1,20 +1,29 @@
+*.a
 *.annot
-*.cmo
 *.cma
 *.cmi
-*.a
-*.o
+*.cmo
 *.cmx
-*.cmxs
 *.cmxa
+*.cmxs
+*.o
+*~
 
 # ocamlbuild working directory
 _build/
 
 # ocamlbuild targets
 *.byte
+*.docdir
+*.mldylib
+*.mllib
 *.native
+*.odocl
 
 # oasis generated files
+myocamlbuild.ml
 setup.data
 setup.log
+setup.ml
+_tags
+META
