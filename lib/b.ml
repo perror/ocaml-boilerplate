@@ -1,6 +1,6 @@
 (** Module B of the boilerplate project *)
 
-(** vitual class interface B *)
+(** virtual class interface B *)
 class virtual b =
 object (self: 't)
   method virtual foo: unit -> unit
