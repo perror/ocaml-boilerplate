@@ -7,7 +7,7 @@ following features already integrated in it:
 - The OASIS (http://oasis.forge.ocamlcore.org/) build-system,
 - The OCamlDoc automatic documentation generation,
 - The OUnit testing framework,
-- The Bissect code coverage framework,
+- The Bisect code coverage framework,
 - A default module and submodules hierarchy.
 
 
@@ -18,13 +18,13 @@ In order to compile this project, you will need:
  * findlib
  * oasis
  * ounit
- * bissect
+ * bisect
 
 You can either go through opam or install it through the packaging
 system of your distribution. If you are going through opam:
 
     $> opam init
-    $> opam install oasis ounit bissect
+    $> opam install oasis ounit bisect
 
 
 Setup and Build the Project
@@ -139,7 +139,7 @@ Issues and Todo-list
   I guess that I need to dig a bit more in the *.mli file and in the
   ways to mask API.
 
-* The Bissect code coverage module is not yet working, it is "work in
+* The Bisect code coverage module is not yet working, it is "work in
   progress". I do not think it is something difficult, I just have to
   spend some time on it.
 
